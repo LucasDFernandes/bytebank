@@ -1,4 +1,4 @@
-package br.com.alura.bytebank.test
+package br.com.alura.bytebank
 
 import br.com.alura.bytebank.model.*
 
