@@ -2,7 +2,18 @@ package br.com.alura
 
 fun main() {
 
+    val cliente = Cliente(
+        nome = "Cliente",
+        cpf = "222.222.222-55",
+        senha = 155
+    )
 
+    val gerente = Gerente(
+        nome = "Lucas",
+        senha = 777,
+        cpf = "111.111.111-55",
+        salario = 5000.0
+    )
 
     //testaContasDiferentes()
     //testaComportamentosFuncionarios()
@@ -52,14 +63,11 @@ private fun testaComportamentosFuncionarios() {
         senha = 123456
     )
 
-    if (gerente.autentica(123456)) {
-        println("Autenticou")
-    }
-
     val diretor = Diretor(
         nome = "Gerente",
         cpf = "222.222.222-00",
         salario = 5000.0,
+        senha = 123456,
         plr = 50000.00
     )
 
