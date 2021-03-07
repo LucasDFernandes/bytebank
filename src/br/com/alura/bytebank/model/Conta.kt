@@ -1,4 +1,4 @@
-package br.com.alura
+package br.com.alura.bytebank.model
 
 abstract class Conta(val titular: String, val numero: Int) {
 

@@ -1,13 +1,13 @@
-package br.com.alura
+package br.com.alura.bytebank.model
 
 class Analista(
     nome: String,
     cpf: String,
     salario: Double
 ) : Funcionario(
-    nome,
-    cpf,
-    salario
+    nome = nome,
+    cpf = cpf,
+    salario = salario
 ) {
 
     override fun getBonificacao(): Double = salario * 0.1

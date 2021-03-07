@@ -1,4 +1,6 @@
-package br.com.alura
+package br.com.alura.bytebank.test
+
+import br.com.alura.bytebank.model.*
 
 fun main() {
 
