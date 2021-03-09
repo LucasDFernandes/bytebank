@@ -24,12 +24,20 @@ fun main() {
 
 private fun testaContasDiferentes() {
     val contaCorrente = ContaCorrente(
-        titular = "Lucas",
+        titular = Cliente(
+            nome = "Lucas Fernandes",
+            cpf = "777.777.777-50",
+            senha = 1
+        ),
         numero = 777
     )
 
     val contaPoupanca = ContaPoupanca(
-        titular = "Luna",
+        titular = Cliente(
+            nome = "Luna Fernandes",
+            cpf = "111.111.111-50",
+            senha = 1
+        ),
         numero = 555
     )
 
@@ -92,8 +100,22 @@ private fun testaComportamentosFuncionarios() {
 }
 
 private fun testaComportamentosConta() {
-    val contaLucas = ContaCorrente(titular = "Lucas Fernandes", numero = 1)
-    val contaBianca = ContaPoupanca(titular = "Bianca Santana", numero = 2)
+    val contaLucas = ContaCorrente(
+        titular = Cliente(
+            nome = "Bianca Santana",
+            cpf = "222.222.222-50",
+            senha = 5
+        ),
+        numero = 1
+    )
+    val contaBianca = ContaPoupanca(
+        titular = Cliente(
+            nome = "Andressa",
+            cpf = "444.444.444.80",
+            senha = 10
+        ),
+        numero = 2
+    )
 
     contaLucas.deposita(valor = 50.0)
     contaBianca.deposita(valor = 100.0)
