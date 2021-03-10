@@ -4,6 +4,17 @@ import br.com.alura.bytebank.model.*
 
 fun main() {
 
+    val endereco = Endereco()
+
+    println(endereco)
+
+    //testaObjects()
+    //testaContasDiferentes()
+    //testaComportamentosFuncionarios()
+    //testaComportamentosConta()
+}
+
+private fun testaObjects() {
     ContaCorrente(
         titular = Cliente(
             nome = "Lucas",
@@ -32,10 +43,6 @@ fun main() {
     )
 
     println("Total de contas: ${Conta.total}")
-
-    //testaContasDiferentes()
-    //testaComportamentosFuncionarios()
-    //testaComportamentosConta()
 }
 
 private fun testaContasDiferentes() {
