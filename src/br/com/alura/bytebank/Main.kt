@@ -4,18 +4,34 @@ import br.com.alura.bytebank.model.*
 
 fun main() {
 
-    val cliente = Cliente(
-        nome = "Cliente",
-        cpf = "222.222.222-55",
-        senha = 155
+    ContaCorrente(
+        titular = Cliente(
+            nome = "Lucas",
+            cpf = "111.111.111-20",
+            senha = 1
+        ),
+        numero = 50
     )
 
-    val gerente = Gerente(
-        nome = "Lucas",
-        senha = 777,
-        cpf = "111.111.111-55",
-        salario = 5000.0
+    ContaCorrente(
+        titular = Cliente(
+            nome = "Lucas",
+            cpf = "111.111.111-20",
+            senha = 1
+        ),
+        numero = 50
     )
+
+    ContaCorrente(
+        titular = Cliente(
+            nome = "Lucas",
+            cpf = "111.111.111-20",
+            senha = 1
+        ),
+        numero = 50
+    )
+
+    println("Total de contas: ${Conta.total}")
 
     //testaContasDiferentes()
     //testaComportamentosFuncionarios()
