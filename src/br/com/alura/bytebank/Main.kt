@@ -1,17 +1,38 @@
 package br.com.alura.bytebank
 
+import br.com.alura.bytebank.exceptions.SaldoInsuficienteException
 import br.com.alura.bytebank.model.*
+import java.util.Objects.nonNull
 
 fun main() {
 
+
+
+    //testandoExceptionExpress()
+    //testaToString()
+    //testaObjects()
+    testaContasDiferentes()
+    //testaComportamentosFuncionarios()
+    //testaComportamentosConta()
+}
+
+private fun testandoExceptionExpress() {
+    val entrada = "10"
+    val valor = try {
+        entrada.toDouble()
+    } catch (e: NumberFormatException) {
+        e.printStackTrace()
+        null
+    }
+
+    if (nonNull(valor))
+        println(valor)
+}
+
+private fun testaToString() {
     val endereco = Endereco()
 
     println(endereco)
-
-    //testaObjects()
-    //testaContasDiferentes()
-    //testaComportamentosFuncionarios()
-    //testaComportamentosConta()
 }
 
 private fun testaObjects() {
@@ -70,8 +91,12 @@ private fun testaContasDiferentes() {
     println("Saldo ${contaCorrente.javaClass.simpleName}: ${contaCorrente.saldo}")
     println("Saldo ${contaPoupanca.javaClass.simpleName}: ${contaPoupanca.saldo}")
 
-    contaCorrente.saca(50.0)
-    contaPoupanca.saca(50.0)
+    try {
+        contaCorrente.saca(150.0)
+        contaPoupanca.saca(50.0)
+    } catch (e: SaldoInsuficienteException) {
+        println("Mensagem = ${e.message}")
+    }
 
     println("Saldo ${contaCorrente.javaClass.simpleName}: ${contaCorrente.saldo}")
     println("Saldo ${contaPoupanca.javaClass.simpleName}: ${contaPoupanca.saldo}")

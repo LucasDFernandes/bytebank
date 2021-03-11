@@ -1,5 +1,7 @@
 package br.com.alura.bytebank.model
 
+import br.com.alura.bytebank.exceptions.SaldoInsuficienteException
+
 class ContaPoupanca(
     titular: Cliente,
     numero: Int
@@ -7,11 +9,11 @@ class ContaPoupanca(
     titular,
     numero
 ) {
-    override fun saca(valor: Double): Double? {
+    override fun saca(valor: Double): Double {
         if (this.saldo >= valor) {
             this.saldo -= valor
             return valor
         }
-        return null
+        throw SaldoInsuficienteException()
     }
 }

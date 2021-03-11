@@ -1,5 +1,7 @@
 package br.com.alura.bytebank.model
 
+import br.com.alura.bytebank.exceptions.SaldoInsuficienteException
+
 class ContaCorrente(
     titular: Cliente,
     numero: Int
@@ -7,13 +9,12 @@ class ContaCorrente(
     titular,
     numero
 ) {
-
-    override fun saca(valor: Double): Double? {
+    override fun saca(valor: Double): Double {
         val valorComTaxa = valor + 0.1
         if (this.saldo >= valorComTaxa) {
             this.saldo -= valorComTaxa
             return valor
         }
-        return null
+        throw SaldoInsuficienteException()
     }
 }
