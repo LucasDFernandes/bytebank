@@ -9,6 +9,8 @@ class ContaCorrente(
     titular,
     numero
 ) {
+
+    @Throws(SaldoInsuficienteException::class)
     override fun saca(valor: Double): Double {
         val valorComTaxa = valor + 0.1
         if (this.saldo >= valorComTaxa) {
