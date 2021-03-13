@@ -7,13 +7,22 @@ import java.util.Objects.nonNull
 fun main() {
 
 
-
+    //testaNullSafeCallEElvisOperator()
     //testandoExceptionExpress()
     //testaToString()
     //testaObjects()
-    testaContasDiferentes()
+    //testaContasDiferentes()
     //testaComportamentosFuncionarios()
     //testaComportamentosConta()
+}
+
+private fun testaNullSafeCallEElvisOperator() {
+    val enderecoNullo: Endereco? = null
+    enderecoNullo?.let { endereco ->
+        println(endereco.lougradouro)
+        val tamanhoComplemento: Int = endereco.complemento?.length ?: 0
+        println(tamanhoComplemento)
+    }
 }
 
 private fun testandoExceptionExpress() {
