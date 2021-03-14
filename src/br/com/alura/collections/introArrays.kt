@@ -5,29 +5,41 @@ import java.math.RoundingMode
 
 fun main() {
 
+    testaArrayBigDecimal()
+
 }
 
-private fun testaArrayBigDecimalEMap() {
-    val arrayOfBigDecimals = bigDecimalArrayOf("1500.55", "2000.50", "5000.0", "150000.0")
+private fun testaArrayBigDecimal() {
+    val arrayOfBigDecimals = bigDecimalArrayOf("1500.55", "2000.50", "5000.0", "15000.0")
     println(arrayOfBigDecimals.contentToString())
 
     val salariosComAumento = arrayOfBigDecimals
-        .map { salario ->
-            if (salario < "5000".toBigDecimal()) {
-                salario + "500".toBigDecimal()
-            } else {
-                (salario * 1.1.toBigDecimal()).setScale(2, RoundingMode.UP)
-            }
-        }
+        .map { salario -> calculoAumentoRelativo(salario) }
         .toTypedArray()
 
     println(salariosComAumento.contentToString())
+
+    val gastoInicial = salariosComAumento.somatoria()
+    println(gastoInicial)
+
+    val meses = 6.toBigDecimal()
+    val gastoTotal = salariosComAumento.fold(gastoInicial) { acumulador, salario ->
+        acumulador + (salario * meses).setScale(2, RoundingMode.UP)
+    }
+    println(gastoTotal)
+
+    val media3MaioresSalarios = salariosComAumento
+        .sorted()
+        .takeLast(3)
+        .toTypedArray()
+        .media()
+    println("Media 3 Maiores Salarios: $media3MaioresSalarios")
 }
 
-private fun bigDecimalArrayOf(vararg valores: String): Array<BigDecimal> {
-    return Array(valores.size) { i ->
-        valores[i].toBigDecimal()
-    }
+private fun calculoAumentoRelativo(salario: BigDecimal) = if (salario < "5000".toBigDecimal()) {
+    salario + "500".toBigDecimal()
+} else {
+    (salario * 1.1.toBigDecimal()).setScale(2, RoundingMode.UP)
 }
 
 private fun testaOperacoesAgregadoras() {
