@@ -1,4 +1,4 @@
-package br.com.alura.collections.lists
+package br.com.alura.collections.basico.lists
 
 data class Livro(
     val titulo: String,

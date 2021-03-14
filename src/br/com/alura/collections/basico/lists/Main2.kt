@@ -1,4 +1,4 @@
-package br.com.alura.collections.lists
+package br.com.alura.collections.basico.lists
 
 fun main() {
     val prateleira = Prateleira(
